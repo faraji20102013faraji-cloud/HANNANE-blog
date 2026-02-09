@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>وبلاگ شیمی</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+        
+        body {
+            background: #f0f8ff;
+            color: #333;
+        }
+        /* Splash */
+        
+        #splash {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0077b6;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 1000;
+            text-align: center;
+        }
+        
+        #splash h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        
+        #splash p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+        }
+        
+        #splash button {
+            padding: 12px 25px;
+            font-size: 1.3em;
+            cursor: pointer;
+            border: none;
+            background: #90e0ef;
+            color: #023e8a;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        
+        #splash button:hover {
+            background: #48cae4;
+        }
+        /* Header */
+        
+        header {
+            background: #023e8a;
+            color: white;
+            padding: 10px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 999;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+        
+        nav a:nth-child(1) {
+            background: #ff595e;
+        }
+        
+        nav a:nth-child(2) {
+            background: #ffca3a;
+            color: #333;
+        }
+        
+        nav a:nth-child(3) {
+            background: #8ac926;
+        }
+        
+        nav a:nth-child(4) {
+            background: #1982c4;
+        }
+        
+        nav a:nth-child(5) {
+            background: #6a4c93;
+        }
+        
+        nav a:hover {
+            transform: scale(1.1);
+        }
+        /* Sections */
+        
+        section {
+            display: none;
+            padding: 120px 20px 50px 20px;
+            min-height: 100vh;
+            transition: 0.3s;
+        }
+        
+        section.active {
+            display: block;
+        }
+        
+        .steps {
+            margin-bottom: 15px;
+            background: #ade8f4;
+            padding: 15px;
+            border-radius: 12px;
+        }
+        
+        .example {
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            color: white;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #023e8a;
+            color: white;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+        
+        @media(max-width:600px) {
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="splash">
+        <h1>🧪⚗️🧬 به دنیای شیمی خوش آمدید! 🧬⚗️🧪</h1>
+        <p>آموزش‌های شیمی را با ما تجربه کنید!</p>
+        <button onclick="enterSite()">ورود به سایت</button>
+    </div>
+
+    <header>
+        <nav>
+            <a href="#" onclick="showSection('home')">خانه</a>
+            <a href="#" onclick="showSection('gallery')">گالری</a>
+            <a href="#" onclick="showSection('mavazene')">موازنه</a>
+            <a href="#" onclick="showSection('elements')">عناصر</a>
+            <a href="#" onclick="showSection('about')">درباره</a>
+        </nav>
+    </header>
+
+    <section id="home" class="active">
+        <h2>خانه</h2>
+        <p>به وبلاگ شیمی خوش آمدید. همه آموزش‌های شیمی را اینجا پیدا خواهید کرد.</p>
+    </section>
+
+    <section id="gallery">
+        <h2>گالری</h2>
+        <p>اینجا می‌توانید تصاویر و نمودارهای شیمی را ببینید.</p>
+    </section>
+
+    <section id="mavazene">
+        <h2>موازنه</h2>
+        <p><strong>تعریف موازنه:</strong> موازنه شیمیایی فرایند برابر کردن تعداد اتم‌ها در واکنش‌های شیمیایی است.</p>
+        <div class="steps">
+            <h3>مراحل حل موازنه:</h3>
+            <ol>
+                <li>شناسایی عناصر موجود در واکنش</li>
+                <li>تعیین تعداد اتم‌ها در هر طرف</li>
+                <li>اضافه کردن ضرایب مناسب</li>
+                <li>بازنگری و اطمینان از تعادل</li>
+            </ol>
+        </div>
+        <div id="examples"></div>
+    </section>
+
+    <section id="elements">
+        <h2>عناصر</h2>
+        <p>اطلاعات در مورد عناصر شیمیایی و جدول تناوبی.</p>
+    </section>
+
+    <section id="about">
+        <h2>درباره ما</h2>
+        <p>این وبلاگ توسط حنانه فرجی، دانش‌آموز دبیرستان فرزانگان ملارد ساخته شده است.</p>
+    </section>
+
+    <footer>
+        ساخته شده توسط حنانه فرجی، دانش‌آموز دبیرستان فرزانگان ملارد
+    </footer>
+
+    <script>
+        function enterSite() {
+            document.getElementById('splash').style.display = 'none';
+        }
+
+        function showSection(id) {
+            let sections = document.querySelectorAll('section');
+            sections.forEach(sec => sec.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        // واکنش‌ها و موازنه واقعی
+        const reactions = [
+            "CH₄ + O₂ → CO₂ + H₂O", "C + O₂ → CO₂", "2 H₂ + O₂ → 2 H₂O", "2 Ag + S → Ag₂S", "2 SO₂ + O₂ → 2 SO₃",
+            "C₂H₅OH + 3 O₂ → 2 CO₂ + 3 H₂O", "4 C₃H₅N₃O₉ → 12 CO₂ + 10 H₂O + 6 N₂ + O₂", "Ca₃O₂ + 6 H₂O → 3 Ca(OH)₂ + 2 PH₃",
+            "2 C₅H₁₀O₂ + 15 O₂ → 10 CO₂ + 10 H₂O", "N₂ + O₂ → 2 NO",
+            "2 NO₂ + O₂ → 2 NO + 2 O₃", "2 Al + NH₄ClO₄ → Al₂O₃ + 2 AlCl₃ + 2 H₂O + N₂", "NaBH₄ + H₂SO₄ → H₂ + Na₂SO₄ + B₂H₆",
+            "2 H₂S + 3 O₂ → 2 SO₂ + 2 H₂O", "2 Fe₂O₃ + 3 Ti → 4 Fe + 3 TiO₂", "4 NH₃ + 5 O₂ → 4 NO + 6 H₂O", "CaCl₂ + 2 NaF → 2 NaCl + CaF₂",
+            "2 C₄H₁₀ + 13 O₂ → 8 CO₂ + 10 H₂O", "K₂Cr₂O₇ + 6 KI + 7 HCl → 2 CrCl₃ + 3 I₂ + 6 KCl + 4 H₂O",
+            "HCl + NaOH → NaCl + H₂O", "H₂SO₄ + 2 NaOH → Na₂SO₄ + 2 H₂O", "HNO₃ + KOH → KNO₃ + H₂O", "CaCO₃ → CaO + CO₂", "Na₂CO₃ + 2 HCl → 2 NaCl + CO₂ + H₂O", "2 Mg + O₂ → 2 MgO", "Zn + 2 HCl → ZnCl₂ + H₂", "Fe + H₂SO₄ → FeSO₄ + H₂", "2 Al + 6 HCl → 2 AlCl₃ + 3 H₂", "Cu + 4 HNO₃ → Cu(NO₃)₂ + 2 NO₂ + 2 H₂O", "2 Pb(NO₃)₂ → 2 PbO + 4 NO₂ + O₂",
+            "2 KClO₃ → 2 KCl + 3 O₂", "2 Na + 2 H₂O → 2 NaOH + H₂", "Cl₂ + 2 NaBr → 2 NaCl + Br₂", "H₂ + Cl₂ → 2 HCl", "N₂ + 3 H₂ → 2 NH₃", "2 CO + O₂ → 2 CO₂", "C₂H₄ + H₂ → C₂H₆", "C₂H₄ + Br₂ → C₂H₄Br₂", "2 CH₃OH + 3 O₂ → 2 CO₂ + 4 H₂O", "CH₄ + Cl₂ → CH₃Cl + HCl", "C₂H₂ + H₂ → C₂H₄", "C₂H₂ + Cl₂ → C₂H₂Cl₂", "Na₂SO₄ + BaCl₂ → BaSO₄ + 2 NaCl", "AgNO₃ + NaCl → AgCl + NaNO₃", "Ca(OH)₂ + CO₂ → CaCO₃ + H₂O", "NH₄Cl → NH₃ + HCl", "H₂S + Cl₂ → S + 2 HCl", "2 Na + Cl₂ → 2 NaCl", "2 K + 2 H₂O → 2 KOH + H₂", "Fe + S → FeS", "2 Cu + O₂ → 2 CuO", "2 Pb + O₂ → 2 PbO", "H₂SO₄ + Zn → ZnSO₄ + H₂", "K₂O + H₂O → 2 KOH", "Na₂O + H₂O → 2 NaOH", "CaO + H₂O → Ca(OH)₂", "P₄ + 5 O₂ → P₄O₁₀"
+        ];
+
+        const colors = ['#0077b6', '#0096c7', '#48cae4', '#90e0ef', '#8ac926', '#ffca3a', '#ff595e', '#6a4c93', '#1982c4', '#00b4d8'];
+        const examplesDiv = document.getElementById('examples');
+        reactions.forEach((reaction, i) => {
+            let div = document.createElement('div');
+            div.className = 'example';
+            div.style.background = colors[i % colors.length];
+            div.innerHTML = `مثال ${i+1}: ${reaction} (کلیک کنید)`;
+            div.onclick = function() {
+                this.innerHTML = `مثال ${i+1} موازنه شد: ${reaction}`;
+                this.style.background = '#90e0ef';
+                this.style.color = '#023e8a';
+            };
+            examplesDiv.appendChild(div);
+        });
+    </script>
+
+</body>
+
+</html>
